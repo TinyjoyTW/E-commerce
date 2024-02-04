@@ -1,6 +1,7 @@
 import productsJSON from "../../assets/products.json";
 import Product from "../Product";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function HomePage() {
   const [products, setProducts] = useState(productsJSON);
@@ -19,7 +20,13 @@ export default function HomePage() {
         {products.map((product) => {
           return (
             <li key={product.id}>
-              <Product product={product} onDelete={deleteProduct} />
+              <Link to={`details/${product.id}`}>{product.title}</Link>
+              <button
+                className="deleteButton"
+                onClick={() => deleteProduct(product.id)}
+              >
+                Delete
+              </button>
             </li>
           );
         })}
