@@ -8,3 +8,10 @@ article .productTitlePrice {
   width: 250px;
   border-radius: 1rem;
 }
+article button {
+  display: none;
+}
+
+article:hover button {
+  display: initial;
+}
