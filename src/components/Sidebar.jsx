@@ -1,8 +1,10 @@
+import { Link } from "react-router-dom";
+
 export default function Sidebar() {
   return (
     <aside>
-      <p>Home</p>
-      <p>About</p>
+      <Link to={`/`}>Home</Link>
+      <Link to={`/about`}>About</Link>
     </aside>
   );
 }

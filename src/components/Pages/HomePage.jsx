@@ -1,8 +1,8 @@
-import productsJSON from "../assets/products.json";
-import Product from "./Product";
+import productsJSON from "../../assets/products.json";
+import Product from "../Product";
 import { useState } from "react";
 
-export default function Content() {
+export default function HomePage() {
   const [products, setProducts] = useState(productsJSON);
 
   function deleteProduct(id) {

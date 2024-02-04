@@ -1,8 +1,8 @@
-import Content from "./components/Content";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import Sidebar from "./components/Sidebar";
 import "./App.css";
+import { Outlet } from "react-router-dom";
 
 function App() {
   return (
@@ -10,7 +10,7 @@ function App() {
       <Navbar />
       <div className="container">
         <Sidebar />
-        <Content />
+        <Outlet />
       </div>
       <Footer />
     </>
