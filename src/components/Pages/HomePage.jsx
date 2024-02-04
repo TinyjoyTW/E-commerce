@@ -1,18 +1,8 @@
-import productsJSON from "../../assets/products.json";
-import Product from "../Product";
-import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useOutletContext } from "react-router-dom";
 
 export default function HomePage() {
-  const [products, setProducts] = useState(productsJSON);
-
-  function deleteProduct(id) {
-    setProducts((productList) => {
-      return productList.filter((product) => {
-        return id !== product.id ? true : false;
-      });
-    });
-  }
+  const [products, setProducts] = useOutletContext();
 
   return (
     <main>
@@ -21,12 +11,6 @@ export default function HomePage() {
           return (
             <li key={product.id}>
               <Link to={`details/${product.id}`}>{product.title}</Link>
-              <button
-                className="deleteButton"
-                onClick={() => deleteProduct(product.id)}
-              >
-                Delete
-              </button>
             </li>
           );
         })}
