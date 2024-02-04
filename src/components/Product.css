@@ -1,0 +1,10 @@
+article .productTitlePrice {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.thumbnail {
+  width: 250px;
+  border-radius: 1rem;
+}
