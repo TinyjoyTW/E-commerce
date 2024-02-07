@@ -19,7 +19,7 @@ export default function Form({ addProduct }) {
   // prevent reloading when clicking on the "save" button
   const handleSubmit = (e) => {
     e.preventDefault();
-    const id = self.crypto.randomUUID();
+    const id = self.crypto.randomUUID(); // generate a unique ID without backend
     const newProduct = { id, title, thumbnail, price, category, description };
     addProduct(newProduct);
   };
