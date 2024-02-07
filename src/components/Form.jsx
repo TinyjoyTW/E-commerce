@@ -1,21 +1,31 @@
-import { useState } from "react";
+import { useState, useEffect, useId } from "react";
 import "./Form.css";
 
-export default function Form({ addNewProduct }) {
-  const [name, setName] = useState("");
-  const [image, setImage] = useState(null);
+export default function Form({ addProduct }) {
+  // States:
+  const [title, setTitle] = useState("");
+  const [thumbnail, setThumbnail] = useState("");
   const [price, setPrice] = useState(0);
   const [category, setCategory] = useState("");
   const [description, setDescription] = useState("");
 
+  // handler functions:
+  const handleNameInput = (e) => setTitle(e.target.value);
+  const handleImageURL = (e) => setThumbnail(e.target.value);
+  const handlePriceInput = (e) => setPrice(e.target.value);
+  const handleCategoryOption = (e) => setCategory(e.target.value);
+  const handleTextarea = (e) => setDescription(e.target.value);
+
+  // prevent reloading when clicking on the "save" button
   const handleSubmit = (e) => {
     e.preventDefault();
-    const newProduct = { name, image, price, category, description };
-    addNewProduct(newProduct);
+    const id = self.crypto.randomUUID();
+    const newProduct = { id, title, thumbnail, price, category, description };
+    addProduct(newProduct);
   };
 
   return (
-    <form className="form">
+    <form className="form" onSubmit={handleSubmit}>
       <span>Add your own product</span>
       <div>
         <label>
@@ -24,8 +34,8 @@ export default function Form({ addNewProduct }) {
             name="productName"
             type="text"
             placeholder="product name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
+            value={title}
+            onChange={handleNameInput}
           />
         </label>
 
@@ -35,8 +45,8 @@ export default function Form({ addNewProduct }) {
             name="image"
             type="url"
             placeholder="product Image"
-            value={image}
-            onChange={(e) => setImage(e.target.value)}
+            value={thumbnail}
+            onChange={handleImageURL}
           />
         </label>
 
@@ -47,12 +57,13 @@ export default function Form({ addNewProduct }) {
             type="number"
             placeholder="price in euro"
             value={price}
-            onChange={(e) => setPrice(e.target.value)}
+            onChange={handlePriceInput}
           />
         </label>
         <label>
           Category:
-          <select name="category" onChange={(e) => setCategory(e.target.value)}>
+          <select name="category" onChange={handleCategoryOption}>
+            <option value="">-</option>
             <option value="electronics">Electronics</option>
             <option value="household">Household</option>
           </select>
@@ -62,11 +73,11 @@ export default function Form({ addNewProduct }) {
       <div className="descriptionContainer">
         <textarea
           type="text"
-          name="description"
+          name="textarea"
           placeholder="add product description here"
           rows="3"
           value={description}
-          onChange={(e) => setDescription(e.target.value)}
+          onChange={handleTextarea}
         ></textarea>
         <button type="submit" onSubmit={handleSubmit}>
           SAVE

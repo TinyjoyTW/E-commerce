@@ -6,8 +6,8 @@ import Form from "../Form";
 export default function HomePage() {
   const [products, setProducts] = useOutletContext();
 
-  const addNewProduct = (product) => {
-    const updatedProducts = [...products, product];
+  const addNewProduct = (newProduct) => {
+    const updatedProducts = [...products, newProduct];
     setProducts(updatedProducts);
   };
 
@@ -21,7 +21,7 @@ export default function HomePage() {
             </li>
           );
         })}
-        <Form addNewProduct={addNewProduct} />
+        <Form addProduct={addNewProduct} />
       </ul>
     </main>
   );

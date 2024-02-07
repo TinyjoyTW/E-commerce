@@ -7,8 +7,10 @@ export default function ProductPage() {
   const [products, setProducts] = useOutletContext();
   const { productId } = useParams();
   const product = products.find((product) => {
-    return product.id === Number(productId) ? true : false;
+    return product.id === productId ? true : false;
   });
+
+  console.log(productId, products);
 
   function deleteProduct(id) {
     setProducts((productList) => {
