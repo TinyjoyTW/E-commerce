@@ -1,0 +1,28 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form textarea {
+    height: 5rem;
+    width: 15rem;
+}
+
+.form label {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 2rem;
+}
+
+.form > span {
+  text-align: center;
+}
+
+.descriptionContainer {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}

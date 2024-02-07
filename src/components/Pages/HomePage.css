@@ -6,7 +6,6 @@ form {
   justify-content: center;
   max-width: 600px;
   margin: 1.5rem auto;
-
   padding: 1.5rem; /* Add some padding to create the card effect */
   border: 1px solid #ccc; /* Add a border to make it recognizable */
   border-radius: 0.5rem; /* Rounded corners for the card */
@@ -36,15 +35,8 @@ input[type="url"],
   margin-left: -0.1rem;
 }
 
-label {
-  display: block;
-  text-align: left;
-  margin: 2rem;
-  height: 35px;
-}
-
 button[type="submit"] {
-  width: 200px;
+  width: 100px;
   height: 40px;
   padding: 0.2rem 1rem;
   margin-top: 1rem;

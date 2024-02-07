@@ -1,6 +1,7 @@
 import { useState } from "react";
+import "./Form.css";
 
-export default function Form({addNewProduct}) {
+export default function Form({ addNewProduct }) {
   const [name, setName] = useState("");
   const [image, setImage] = useState(null);
   const [price, setPrice] = useState(0);
@@ -9,16 +10,16 @@ export default function Form({addNewProduct}) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const newProduct = {name, image, price, category,description};
+    const newProduct = { name, image, price, category, description };
     addNewProduct(newProduct);
   };
 
   return (
-    <form>
+    <form className="form">
       <span>Add your own product</span>
       <div>
         <label>
-          Product name:
+          Name:
           <input
             name="productName"
             type="text"
@@ -29,7 +30,7 @@ export default function Form({addNewProduct}) {
         </label>
 
         <label>
-          Add image
+          Image:
           <input
             name="image"
             type="url"
@@ -40,7 +41,7 @@ export default function Form({addNewProduct}) {
         </label>
 
         <label>
-          Price
+          Price:{" "}
           <input
             name="price"
             type="number"
@@ -49,16 +50,16 @@ export default function Form({addNewProduct}) {
             onChange={(e) => setPrice(e.target.value)}
           />
         </label>
-      </div>
-      <div>
         <label>
-          Category
+          Category:
           <select name="category" onChange={(e) => setCategory(e.target.value)}>
             <option value="electronics">Electronics</option>
             <option value="household">Household</option>
           </select>
         </label>
-        <label>Description: </label>
+      </div>
+
+      <div className="descriptionContainer">
         <textarea
           type="text"
           name="description"
@@ -67,7 +68,9 @@ export default function Form({addNewProduct}) {
           value={description}
           onChange={(e) => setDescription(e.target.value)}
         ></textarea>
-        <button type="submit" onSubmit={handleSubmit}>SAVE</button>
+        <button type="submit" onSubmit={handleSubmit}>
+          SAVE
+        </button>
       </div>
     </form>
   );
