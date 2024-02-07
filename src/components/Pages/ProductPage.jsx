@@ -1,4 +1,4 @@
-import "./Product.css";
+import "../Product.css";
 import { useNavigate, useParams } from "react-router-dom";
 import { useOutletContext } from "react-router-dom";
 
